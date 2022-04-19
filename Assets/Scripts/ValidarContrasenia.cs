@@ -7,12 +7,15 @@ public class ValidarContrasenia : MonoBehaviour
 {
     string contraseniaCorrecta;
     string contraseniaUsuario;
-    Text ingresoUsuario;
+    public Text ingresoUsuario;
+    public Text textoMsj;
+    public GameObject cartelitoMsj;
 
-    // Start is called before the first frame update
+    // Used this for initialization
     void Start()
     {
         contraseniaCorrecta = "12345";
+        cartelitoMsj.SetActive(false);
     }
 
     // Update is called once per frame
@@ -23,11 +26,18 @@ public class ValidarContrasenia : MonoBehaviour
 
     public void validarContrasenia()
     {
-        contraseniaCorrecta = ingresoUsuario.text;
+        contraseniaUsuario = ingresoUsuario.text;
         if (contraseniaUsuario == contraseniaCorrecta)
         {
-
+            cartelitoMsj.SetActive(true);
+            textoMsj.text = "Bienvenido";
+            Debug.Log("Bienvenido");
         }
-
+        else
+        {
+            cartelitoMsj.SetActive(true);
+            textoMsj.text = "Contraseña Incorrecta";
+            Debug.Log("Contraseña Incorrecta");
+        }
     }
 }
